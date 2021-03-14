@@ -5,7 +5,7 @@ import project1.BagInterface;
 /**
  * Implementations of the operations for a Bag using singly linked list
  * @author Peter
- * @version 1.0
+ * @version 2.0
  */
 public class Bag implements BagInterface {
 	/**
@@ -16,7 +16,7 @@ public class Bag implements BagInterface {
 	/**
 	 * The size of this Bag (# of Objects within it)
 	 */
-	private int count;
+	private int count2;
 	
 	/**
 	 * Generate an empty Bag (linked list)
