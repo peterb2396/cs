@@ -104,22 +104,20 @@ public class LinkedString implements StringInterface {
 		if (to > length())
 			throw new StringBoundsException("The specified substring is not within the bounds of the target!");
 		else
-		{   //Create the substring and set the head to the element within the node at the start index
-			LinkedString sub = new LinkedString((String)find(from).getElement());
+		{
+			char[] subChars = new char[to-from];
+			int i = 0;
 			
-			//Now we need to loop the rest of the chars and create + add a node to the list
-			for (int c = from+1; c<to; c++) {
-				//Add a node with element that is the Char of the substring at the respective index to the end of this LinkedList.
-				
-				Node last_node = find(length() - 1);
-				Node new_node = new Node(find(c).getElement(), null, last_node);
-				last_node.setSuccessor(new_node);
-				
-				this.count++;
+			for (int c = from; c<to; c++)
+			{
+				subChars[i] = (char) find(c).getElement();
+				i++;
 			}
-		return sub;
+			
+			return new LinkedString(subChars);
 		}
-	}
+		
+		}
 
 	/**
 	 * Join the specified string to the end of this one
@@ -127,19 +125,19 @@ public class LinkedString implements StringInterface {
 	 * @return LinkedString object of the new combinatorial string
 	 */
 	public LinkedString concat(LinkedString other) {
-		//Create and return a new LinkedString object that copies the parameter's nodes to a new copy of this one
-		//Maintain immutable property
-		LinkedString new_str = new LinkedString(getChars());
+		LinkedString string1 = this;
+		LinkedString string2 = other;
 		
-		for (int i = 0; i<other.length(); i++)
+		char[] newChars = new char[string1.length() + string2.length()];
+		for(int i = 0; i<newChars.length; i++)
 		{
-			Node last_node = new_str.find(length()-1);                             //Store a reference to the last node in the DLL
-			Node new_node = new Node(other.find(i).getElement(), null, last_node); //Create the new node to be the next character and set the previous reference
-			last_node.setSuccessor(new_node);                                      //Set the successor reference of the node that was last to the last node
-			
-			new_str.count++;
+			if (i < string1.length())
+				newChars[i] = (char) string1.find(i).getElement();
+			else
+				newChars[i] = (char) string2.find(i-string1.length()).getElement();
 		}
-		return new_str;
+		
+		return new LinkedString(newChars);
 	}
 	
 	/**

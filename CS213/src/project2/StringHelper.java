@@ -71,17 +71,17 @@ public class StringHelper {
 		LinkedString string = adtStrings.get(gen.nextInt(adtStrings.size())); //Use random string
 		int gettingIndex = gen.nextInt(string.length());
 		System.out.println("Reading random character...");
-		display("Char at index "+(gettingIndex)+" is "+ string.charAt(gettingIndex), adtStrings);
+		display("Char at index "+(gettingIndex)+" on the string "+ string + " is "+ string.charAt(gettingIndex), adtStrings);
 		
 		//Test the size representation
 		string = adtStrings.get(gen.nextInt(adtStrings.size())); //Use random string
 		System.out.println("Testing size...");
-		display("The LinkedString '" + string + "' has" + string.length() + ((string.length() > 1) ? " characters." : " character."), adtStrings);
+		display("The LinkedString '" + string + "' has " + string.length() + ((string.length() > 1) ? " characters." : " character."), adtStrings);
 		
 		//Test the empty status
 		string = adtStrings.get(gen.nextInt(adtStrings.size())); //Use random string
 		System.out.println("Testing if empty...");
-		display("The string '" + string +"'" +  ((string.isEmpty()) ? "is" : "is not")+ " empty.", adtStrings);
+		display("The string '" + string +"' " +  ((string.isEmpty()) ? "is" : "is not")+ " empty.", adtStrings);
 		
 		//Test concatenation
 		Collections.shuffle(adtStrings); //SHUFFLE 
