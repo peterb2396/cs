@@ -14,7 +14,7 @@ public class LinkedString implements StringInterface {
 	/**
 	 * The size of this Bag (# of Objects within it)
 	 */
-	private int count; //Length of the string
+	public int count; //Length of the string
 	
 	/**
 	 * Generate an empty string (doubly linked list)
@@ -98,7 +98,7 @@ public class LinkedString implements StringInterface {
 	 * @param to one more than index to end substring at
 	 * @return specified substring of this string if valid
 	 */
-	public LinkedString susbtring(int from, int to) throws StringBoundsException {
+	public LinkedString substring(int from, int to) throws StringBoundsException {
 		//Create a new LinkedString object, and add nodes by reading the characters of this string
 		//Check if out of bound
 		if (to > length())
@@ -169,5 +169,22 @@ public class LinkedString implements StringInterface {
 		else //Traverse to the node and return it's element casted as a char
 			return (char)find(index).getElement();
 	}
+	
+	/**
+	 * Overrides the printing of a LinkedString, to return the sequence of characters rather than the memory address.
+	 * @return String representation of our LinkedString
+	 */
+	@Override
+    public String toString() {
+        char[] chars = new char[length()];
+        for (int i = 0; i<length(); i++)
+        {
+        	chars[i] = (char) this.find(i).getElement();
+        }
+        //Accumulate each element of node as characters, put them together in a string and return it.
+        return new String(chars);
+        
+    } 
+	
 
 }

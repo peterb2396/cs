@@ -26,7 +26,7 @@ public interface StringInterface {
    * @param to One more than the index we stop at\
    * @return LinkedString that is a substring via the parameters
    */
-  public LinkedString susbtring(int from, int to) throws StringBoundsException;
+  public LinkedString substring(int from, int to) throws StringBoundsException;
   
   /**
    * Append a specified LinkedString to the end of this one.

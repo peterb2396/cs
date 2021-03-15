@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
  * @author Peter
  * @version 1.0
  */
-public class StringDriver {//Be sure the note pad to test with is named 'bag' and in the same directory as this file!
+public class StringDriver {//Be sure the note pad to test with is named 'strings' and in the same directory as this file!
 	/**
 	 * instance of our helper class, used in the main to start testing
 	 */
