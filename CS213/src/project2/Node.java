@@ -1,6 +1,6 @@
 package project2;
 
-/*Node to be implemented in ADTs (Linked lists)
+/*Node to be implemented in ADTs (Doubly Linked lists)
  * @author Peter Buonaiuto
  * @version 1.0
  */
@@ -41,6 +41,14 @@ public class Node {
 	{
 		this.element = element;
 		this.successor = successor;
+		this.pred = pred;
+	}
+	/**
+	 * Returns a reference to the element contained in this Node
+	 * @return Object in the node
+	 */
+	public Object getElement() {
+		return this.element;
 	}
 	
 	/**
@@ -55,7 +63,7 @@ public class Node {
 	 * Sets the next node to a new reference
 	 * @param next The new node to come after this one
 	 */
-	public void setNext(Node successor) {
+	public void setSuccessor(Node successor) {
 		this.successor = successor;
 	}
 	
