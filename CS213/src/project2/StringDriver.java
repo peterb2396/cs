@@ -3,7 +3,7 @@ package project2;
 import java.io.FileNotFoundException;
 
 /**
- * Driver class for the ADT bag
+ * Driver class for the ADT linked string program
  * @author Peter
  * @version 1.0
  */

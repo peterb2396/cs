@@ -1,7 +1,7 @@
 package project2;
 
 /**
- * Implementations of the operations for a Bag using singly linked list
+ * Implementations of the operations for a String using doubly linked list
  * @author Peter
  * @version 1.0
  */
@@ -12,7 +12,7 @@ public class LinkedString implements StringInterface {
 	private Node head; //Head reference (contains first char in string)
 	
 	/**
-	 * The size of this Bag (# of Objects within it)
+	 * The size of this string (# of nodes within it)
 	 */
 	public int count; //Length of the string
 	
@@ -25,7 +25,7 @@ public class LinkedString implements StringInterface {
 	
 	/**
 	 * Generate a string (doubly linked) with the char array given
-	 * @param head the first char of the string
+	 * @param chars character array to be used to create the string
 	 */
 	public LinkedString(char[] chars) { //Constructs a new DLL and allocates necessary nodes
 		if (chars.length > 0)
@@ -54,7 +54,7 @@ public class LinkedString implements StringInterface {
 	
 	/**
 	 * Generate a string (doubly linked) with the given string
-	 * @param head the first char of the string
+	 * @param str the string to decompose to nodes of characters
 	 */
 	public LinkedString(String str) { //Converts a string to chars to construct a DLL with these chars to become nodes
 		
@@ -64,6 +64,7 @@ public class LinkedString implements StringInterface {
 	/**
 	 * Return a ref to a node at a given index
 	 * @return Node at the given index
+	 * @param index node to find
 	 */
 	private Node find(int index) {      //Traverse the nodes by repeatedly getting the successor index times.
 		int pos = 0;
@@ -139,26 +140,12 @@ public class LinkedString implements StringInterface {
 		
 		return new LinkedString(newChars);
 	}
-	
-	/**
-	 * Return the LinkedList as an array of chars.
-	 * @return a char array containing the elements of the DLL 
-	 */
-	private char[] getChars()
-	{
-		char[] chars = new char[length()];
-		for (int i = 0; i<length(); i++)
-		{
-			chars[i] = (char) find(i).getElement();
-		}
-		
-		return chars;
-	}
 
 	/**
 	 * get the char at the specified index
 	 * @throws StringBoundsException if character index does not exist
 	 * @return char at the index
+	 * @param index to read the char at
 	 */
 	public char charAt(int index) throws StringBoundsException{
 		//Check if out of bounds

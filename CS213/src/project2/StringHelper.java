@@ -25,7 +25,7 @@ public class StringHelper {
 	private static Random gen = new Random();
 	
 	/**
-	 * Start the testing process by making a bag, call create()
+	 * Start the testing process by making a list, call create()
 	 * @throws FileNotFoundException if can't find the file
 	 */
 	public void start() throws FileNotFoundException {
@@ -36,8 +36,8 @@ public class StringHelper {
 	}
 	
 	/**
-	 * Add items from a text file to the bag, then call display
-	 * @param bag
+	 * Add items from a text file to the list, then call display
+	 * @param adtStrings our list of adt strings 
 	 * @throws FileNotFoundException if can't find file
 	 */
 	public static void create(ArrayList<LinkedString> adtStrings) throws FileNotFoundException {
@@ -51,7 +51,7 @@ public class StringHelper {
 	}
 	/**
 	 * Print all items in the array list
-	 * @param bag
+	 * @param adtStrings our list of adt strings
 	 * @param header Used to tell us what operation should have occurred on the list that we are now viewing
 	 */
 	public static void display(String header, ArrayList<LinkedString> adtStrings) {
@@ -63,11 +63,11 @@ public class StringHelper {
 	
 	/**
 	 * Performs various operations on our initial list so we can verify the integrity of the ADT
-	 * @param bag
+	 * @param adtStrings our list of ADT strings
 	 */
 	public static void testOperations(ArrayList<LinkedString> adtStrings) {
 
-		//Test charAt on a random item from our notepad
+		//Test charAt on a random item from our note pad
 		LinkedString string = adtStrings.get(gen.nextInt(adtStrings.size())); //Use random string
 		int gettingIndex = gen.nextInt(string.length());
 		System.out.println("Reading random character...");
@@ -130,11 +130,6 @@ public class StringHelper {
 			System.out.println("Testing substrings...");
 			display("The substring of " + string + " from "+ from + " to "+to + " is "+ string.substring(from, to), adtStrings);
 		}
-
-		
-		
-		
-		
 	}
 
 }

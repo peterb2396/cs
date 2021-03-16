@@ -1,6 +1,6 @@
 package project2;
 
-/*Node to be implemented in ADTs (Doubly Linked lists)
+/**Node to be implemented in ADTs (Doubly Linked lists)
  * @author Peter Buonaiuto
  * @version 1.0
  */
@@ -16,6 +16,7 @@ public class Node {
 	/**
 	 * The linked (previous) node to this one
 	 */
+	@SuppressWarnings("unused")
 	private Node pred;
 	/**
 	 * Default constructor for an empty node with null element and next ref

@@ -10,7 +10,7 @@ public class StringBoundsException extends IndexOutOfBoundsException {
 	
 	/**
 	 * Print string when this exception is thrown
-	 * @param string
+	 * @param string to display
 	 */
 	public StringBoundsException(String string) {
 		System.out.println(string);
