@@ -40,9 +40,10 @@ public class Helper {
 			  testSearching();
 		  }
 		  
-		  
-		  
-		  
+		  if (shouldTestRemove())
+		  {
+			  book.removeContact(book.search(JOptionPane.showInputDialog("Enter info to search, get, and remove the contact.")));
+		  }
 		}
 	
 	private static boolean shouldTestInsertion() {
@@ -51,6 +52,10 @@ public class Helper {
 	
 	private static boolean shouldTestSearch() {
 		return 1 == JOptionPane.showOptionDialog(null, "Would you like to search for a contact?", "Address Book", 0, 0, null, responses, responses[1]);
+	}
+	
+	private static boolean shouldTestRemove() {
+		return 1 == JOptionPane.showOptionDialog(null, "Would you like to remove a contact?", "Address Book", 0, 0, null, responses, responses[1]);
 	}
 	
 	private static void traverse() {
@@ -92,7 +97,6 @@ public class Helper {
 				String[] tokens = sc.nextLine().split("  ");
 				if (tokens.length >= 6) {
 					
-				
 				Contact newContact = new Contact(
 						tokens[0], 
 						new Address(tokens[1], tokens[2], tokens[3], tokens[4]), 

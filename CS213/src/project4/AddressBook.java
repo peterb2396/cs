@@ -21,7 +21,7 @@ public class AddressBook {
 		tree.delete(c);
 		count--;
 	}
-	
+	//also acts as get method
 	public Contact search(String s) {
 		return tree.search(tree.root, s).getElement();
 	}
