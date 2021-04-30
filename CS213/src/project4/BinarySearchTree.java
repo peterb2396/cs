@@ -69,18 +69,18 @@ public class BinarySearchTree<E> extends BaseBinaryTree<E> {
 	   
 	//Search the tree given key of element
 	   
-	public TreeNode<E> search(TreeNode<E> root, E key)
+	public TreeNode<E> search(TreeNode<E> root, String s)
 	   {
-	       // Base Cases: root is null or key is present at root
-	       if (root==null || root.getElement() == key)
-	           return root;
+	       //method ends when element is either not found or found
+	       if (root==null || root.getElement().toString().contains(s))
+	    	   return root;
 	    
 	       // Key is greater than root's key
-	       if (((Comparable<E>) root.getElement()).compareTo(key) < 0)
-	          return search(root.getRight(), key);
+	       if ((root.getElement()).toString().compareTo(s) < 0)
+	          return search(root.getRight(), s);
 	    
 	       // Key is smaller than root's key
-	       return search(root.getLeft(), key);
+	       return search(root.getLeft(), s);
 	   }
 	   
 	   //Insertion

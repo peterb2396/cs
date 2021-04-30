@@ -22,8 +22,8 @@ public class AddressBook {
 		count--;
 	}
 	
-	public Contact search(Contact c) {
-		return tree.search(tree.root, c).getElement();
+	public Contact search(String s) {
+		return tree.search(tree.root, s).getElement();
 	}
 	
 	public void removeAll()

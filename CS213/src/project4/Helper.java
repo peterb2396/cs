@@ -19,6 +19,7 @@ public class Helper {
 	
 	private static final String path = Helper.class.getProtectionDomain().getCodeSource().getLocation().getPath() + Helper.class.getPackage().getName() + "/contacts";
 	private static AddressBook book;
+	private static String[] responses = {"No", "Yes"};
 	
 	
 	public static void start() throws FileNotFoundException {
@@ -28,12 +29,29 @@ public class Helper {
 		  loadFile(); //Load contacts from file to test
 		  traverse(); //Traverse the tree in 3 ways
 		  
-		  testInsertion(); //Insert a user defined contact
-		  traverse(); //Traverse with the new contact in the tree
+		  if (shouldTestInsertion())
+		  {
+			  testInsertion(); //Insert a user defined contact
+			  traverse(); //Traverse with the new contact in the tree
+		  }
 		  
-		  testSearching();
+		  if (shouldTestSearch())
+		  {
+			  testSearching();
+		  }
+		  
+		  
+		  
 		  
 		}
+	
+	private static boolean shouldTestInsertion() {
+		return 1 == JOptionPane.showOptionDialog(null, "Would you like to Insert a new contact?", "Address Book", 0, 0, null, responses, responses[1]);
+	}
+	
+	private static boolean shouldTestSearch() {
+		return 1 == JOptionPane.showOptionDialog(null, "Would you like to search for a contact?", "Address Book", 0, 0, null, responses, responses[1]);
+	}
 	
 	private static void traverse() {
 		//Traverse inorder
@@ -103,7 +121,7 @@ public class Helper {
 	}
 	
 	private static void testSearching() {
-		Contact result = book.search(new Contact(JOptionPane.showInputDialog("Enter a name to search for"), null, null));
+		Contact result = book.search(JOptionPane.showInputDialog(null, "Enter details to search"));
 		if (result == null)
 			JOptionPane.showMessageDialog(null, "Not found!");
 		else JOptionPane.showMessageDialog(null, result);
